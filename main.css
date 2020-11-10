@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+}
+
+button {
+    padding: .2em;
+    width: 100px;
+}
+
+
+
+
+.gameField {
+    
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 98px 98px 98px;
+    grid-template-rows: 98px 98px 98px;
+    grid-template-areas: "top-l top-m top-r"
+                         "mid-l mid-m mid-r"
+                         "down-l down-m down-r";
+    font-size: 70px;
+    justify-items: center;
+    align-items: center;
+    padding: .1em;
+    margin-bottom: .3em;
+    
+}
+.divdesign {
+    background-color: rgb(4, 240, 240);
+    width: 95px;
+    height: 95px;
+    /* displays white space! */
+    white-space: pre;  
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    border: 4px solid black;
+}
+
+.inputcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+#InputTwo {
+    margin-bottom: 1em;
+}
+
+.labelinput {
+    margin: .3em
+}
+
+#display {
+    border: 1px solid black;
+    height:  80px;
+    width: 300px;
+}
+
+.underbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#NewGameButton {
+    margin: 1em;
+}
+
+#top-l {
+    grid-area: top-l;
+}
+#top-m {
+    grid-area: top-m;
+}
+#top-r {
+    grid-area: top-r;
+}
+
+#mid-l {
+    grid-area: mid-l;
+}
+#mid-m {
+    grid-area: mid-m;
+}
+#mid-r {
+    grid-area: mid-r;
+}
+
+
+#down-l {
+    grid-area: down-l;
+}
+#down-m {
+    grid-area: down-m;
+}
+#down-r {
+    grid-area: down-r;
+}
