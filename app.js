@@ -26,6 +26,7 @@ let gameModule = (function() {
     newGameButton.addEventListener("click", function(e) {
         generateEmptyBoard(Gameboard);
         render(Gameboard);
+        display.textContent = "";
     })
 
     // Submit Button: Clears the inputs
@@ -68,6 +69,22 @@ let gameModule = (function() {
         
             everyDiv[i].addEventListener("click", function(e) {
                 display.textContent = " ";
+                // New Game by pressing on the board!
+                if(won != "") {
+                        topl.classList.remove("win")
+                        topm.classList.remove("win")
+                        topr.classList.remove("win")
+
+                        midl.classList.remove("win")
+                        midm.classList.remove("win")
+                        midr.classList.remove("win")
+
+                        downl.classList.remove("win")
+                        downm.classList.remove("win")
+                        downr.classList.remove("win")
+                    generateEmptyBoard(Gameboard)
+                    render(Gameboard)
+                }
                 if(everyDiv[i].textContent == " ") {
                     everyDiv[i].textContent = currentLogo;
                     board[i] = currentLogo;
@@ -75,22 +92,21 @@ let gameModule = (function() {
                     won = checkIfWon(Gameboard);
                     
                     if(won == "X")  {
-                        
-                        display.textContent = PlayerOne.name + " with: X won the match!"
-                        generateEmptyBoard(Gameboard);
-                        render(Gameboard);
+                        display.textContent = PlayerOne.name + " X won the match!"
+                        // generateEmptyBoard(Gameboard);
+                        // render(Gameboard);
                         return;
                     } else if(won == "O") {
-                        display.textContent =  PlayerTwo.name + " with: O won the match!"
-                        generateEmptyBoard(Gameboard);
-                        render(Gameboard);
+                        display.textContent =  PlayerTwo.name + " O won the match!"
+                        // generateEmptyBoard(Gameboard);
+                        // render(Gameboard);
                         return;
                     }
 
                     if(won == "Tie")  {
                         display.textContent = "Its a tie!";
-                        generateEmptyBoard(Gameboard);
-                        render(Gameboard);
+                        // generateEmptyBoard(Gameboard);
+                        // render(Gameboard);
                         return;
                     }
                     swapCurrentPlayer();            
@@ -101,30 +117,55 @@ let gameModule = (function() {
         }
        
     }
-
+   
 
     function checkIfWon(board) {
         if(board[0] == board[1] && board[1] == board[2] && board[0] != " ") {      //Top row horizontal
+            topl.classList.add("win")
+            topm.classList.add("win")
+            topr.classList.add("win")
             return board[0];
         } else if(board[3] == board[4] && board[4] == board[5] && board[4] != " ") { //mid row horizonzal
+            midl.classList.add("win")
+            midm.classList.add("win")
+            midr.classList.add("win")
             return board[3];
         }
         else if(board[6] == board[7] && board[7] == board[8] && board[6] != " ") { // bottom row horizonzal
+            downl.classList.add("win")
+            downm.classList.add("win")
+            downr.classList.add("win")
             return board[6];
         }
         else if(board[0] == board[3] && board[3] == board[6] && board[0] != " ") { // left colum vertical
+            topl.classList.add("win")
+            midl.classList.add("win")
+            downl.classList.add("win")
             return board[0];
         }
         else if(board[1] == board[4] && board[4] == board[7] && board[1] != " ") { // mid colum vertical
+            topm.classList.add("win")
+            midm.classList.add("win")
+            downm.classList.add("win")
             return board[1];
         }
         else if(board[2] == board[5] && board[5] == board[8] && board[2] != " ") { // right colum vertical
+            topr.classList.add("win")
+            midr.classList.add("win")
+            downr.classList.add("win")
             return board[2];
         }
         else if(board[0] == board[4] && board[4] == board[8] && board[0] != " ") { // diagonal topleft to botrig
+            
+            topl.classList.add("win")
+            midm.classList.add("win")
+            downr.classList.add("win")
             return board[0];
         }
         else if(board[2] == board[4] && board[4] == board[6] && board[2] != " ") { // diagonal topr to botl
+            topr.classList.add("win")
+            midm.classList.add("win")
+            downl.classList.add("win")
             return board[2];
         } else if(board[0] != " " && board[1] != " " && board[2] != " " && board[3] != " " && board[4] != " " && board[5] != " " && board[6] != " " && board[7] != " " && board[8] != " ") {
             return "Tie";
@@ -143,7 +184,21 @@ let gameModule = (function() {
         }
     }
 
+    
+    let topl = document.querySelector("#top-l");
+    let topm = document.querySelector("#top-m");
+    let topr = document.querySelector("#top-r");
 
+    let midl = document.querySelector("#mid-l");
+    let midm = document.querySelector("#mid-m");
+    let midr = document.querySelector("#mid-r");
 
+    let downl = document.querySelector("#down-l");
+    let downm = document.querySelector("#down-m");
+    let downr = document.querySelector("#down-r");
+
+   
+
+    
 })();
 

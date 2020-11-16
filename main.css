@@ -1,13 +1,31 @@
 *{
     padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(245, 181, 181);
+}
+
+.howTo {
+    margin-bottom: .7em;
 }
 
 button {
-    padding: .2em;
+    padding: .6em;
+    color: white;
     width: 100px;
+    text-decoration: none;
+    border: none;
+    background-color:rgb(184, 99, 99);
+    
 }
 
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 80px;
+}
 
+.win {
+    background-color: rgb(115, 211, 115) !important;
+}
 
 
 .gameField {
@@ -28,7 +46,7 @@ button {
     
 }
 .divdesign {
-    background-color: rgb(4, 240, 240);
+    background-color: rgb(184, 99, 99);
     width: 95px;
     height: 95px;
     /* displays white space! */
@@ -36,7 +54,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;   
-    border: 4px solid black;
+    border: 4px solid rgb(255, 252, 252);
+    font-family: 'Indie Flower', cursive;
 }
 
 .inputcontainer {
@@ -58,8 +77,12 @@ button {
 
 #display {
     border: 1px solid black;
-    height:  80px;
+    height:  auto;
     width: 300px;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: .6em;
+    
 }
 
 .underbody {
